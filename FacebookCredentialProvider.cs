@@ -20,12 +20,19 @@ namespace BlackBarLabs.Security.CredentialProvider.Facebook
                 if (username != result.id)
                     return invalidCredentials("username and result.Id from Facebook do not match");
                 return success(client.AccessToken);
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 if (ex.Message.Contains("OAuthException"))
                     return invalidCredentials("OAuthException occurred");
                 throw ex;
             }
+        }
+
+        public Task<TResult> UpdateTokenAsync<TResult>(Uri providerId, string username, string token, Func<string, TResult> success, Func<TResult> doesNotExist,
+            Func<TResult> updateFailed)
+        {
+            throw new NotImplementedException();
         }
     }
 }
