@@ -34,5 +34,10 @@ namespace BlackBarLabs.Security.CredentialProvider.Facebook
         {
             throw new NotImplementedException();
         }
+
+        public Task<TResult> GetCredentialsAsync<TResult>(Uri providerId, string username, Func<string, TResult> success, Func<TResult> doesNotExist)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
